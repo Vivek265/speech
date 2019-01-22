@@ -1,0 +1,36 @@
+<html></<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <script>
+
+    window.SpeechRecognition=window.SpeechRecognition;
+  const recog=new SpeechRecognition();
+  recog.interimResults=true;
+
+  let p = document.createElement('p');
+const word=document.querySelector('#words');
+word.appendChild(p)
+recog.addEventListener('result',voice=>{
+const speech=Array.from(voice.results)
+       .map(resulr=>result[0])
+       .map(result=>result.transcript)
+       .join('');
+       p.textContent = speech;
+       if(voice.results[0].isFinal){
+         p=document.createElement('p');
+         word.appendChild(p)
+       }
+
+
+
+})
+recog.addEventListener('end',recog.start)
+recog.start();
+</script>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>nEw
+<div id='words'></div>
+  </body>
+</html>
